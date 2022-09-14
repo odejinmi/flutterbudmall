@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/Dashboard/bottomnavigation.dart';
 import 'package:get/get.dart';
 
-import '../Dashboard/bottomnavigation.dart';
 import '../constant/constant.dart';
 import '../controller/walletcontroller.dart';
 

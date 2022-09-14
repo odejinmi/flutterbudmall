@@ -238,7 +238,7 @@ class Utility extends StatelessWidget {
               const SizedBox(
                 height: 15,
               ),
-              const Text("Processing fee:  ₦100.00"),
+              // const Text("Processing fee:  ₦100.00"),
               const Spacer(),
               Submitbutton(
                 name: "Pay",

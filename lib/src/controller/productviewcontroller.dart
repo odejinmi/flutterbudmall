@@ -43,7 +43,11 @@ class Productviewcontroller extends GetxController {
   void productDetails() async {
     String res;
 
-    isLoading.value = true;
+    try {
+      isLoading.value = true;
+    } catch (Exception) {
+      print("an error occured when saving");
+    }
 
     print("nDatalist.id");
     print(nDatalist.id);

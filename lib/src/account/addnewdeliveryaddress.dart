@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/constant/submitbutton.dart';
 import 'package:get/get.dart';
 
 import '../constant/constant.dart';
 import '../constant/costumeAppbar.dart';
-import '../constant/country.dart';
-import '../constant/submitbutton.dart';
 import '../controller/deliveryaddresscontroller.dart';
 
 class Addnewdeliveryaddress extends StatelessWidget {
@@ -54,10 +53,10 @@ class Addnewdeliveryaddress extends StatelessWidget {
                   suffixIcon: const Icon(Icons.keyboard_arrow_down),
                 ),
                 onTap: () async {
-                  var tope = await Get.to(() => Country());
-                  if (tope != null) {
-                    controller.countryController.value.text = tope;
-                  }
+                  // var tope = await Get.to(() => Country());
+                  // if (tope != null) {
+                  //   controller.countryController.value.text = tope;
+                  // }
                 },
                 controller: controller.countryController.value,
                 keyboardType: TextInputType.phone,

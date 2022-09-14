@@ -1,7 +1,6 @@
+import 'package:flutterbudmall/src/Dashboard/dashboard.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../Dashboard/dashboard.dart';
 
 class CostumeAppbar extends AppBar {
   Widget? name;

@@ -3,10 +3,8 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../model/buydataperser.dart';
 import '../model/powerperser.dart';
 import '../request/apis.dart';
-import '../request/env_variable.dart';
 
 class Utilitycontroller extends GetxController {
   var amountController = TextEditingController().obs;
@@ -86,9 +84,12 @@ class Utilitycontroller extends GetxController {
 
     isLoading.value = false;
 
+    print(res);
+
     var cmddetails = jsonDecode(res);
 
     if (cmddetails['status']) {
+      showCommonSuccess(cmddetails['message'], context);
     } else {
       if (cmddetails['message'] != "No internet connection") {
         showCommonError(cmddetails['message'], context);
@@ -96,12 +97,19 @@ class Utilitycontroller extends GetxController {
     }
   }
 
-  Widget item(name) {
+  Widget item(item) {
     return Container(
+      margin: EdgeInsets.only(right: 20),
       child: Column(
         children: [
-          Image.network(
-            "${imageurl}${name.image}",
+          // Image.network(
+          //   "${imageurl}${name.image}",
+          //   height: 53,
+          //   width: 53,
+          // ),
+          Image.asset(
+            package: 'flutterbudmall',
+            "assests/images/${item.image.toLowerCase()}",
             height: 53,
             width: 53,
           ),
@@ -109,7 +117,7 @@ class Utilitycontroller extends GetxController {
             height: 20,
           ),
           Text(
-            name.name,
+            item.name,
             style: const TextStyle(fontSize: 10, fontWeight: FontWeight.w500),
           )
         ],

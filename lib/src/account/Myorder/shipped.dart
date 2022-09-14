@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import '../../constant/constant.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
 
 class Shipped extends StatelessWidget {
   List originList;

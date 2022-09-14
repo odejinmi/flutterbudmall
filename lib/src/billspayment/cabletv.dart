@@ -242,7 +242,7 @@ class _CabletvState extends State<Cabletv> {
               const SizedBox(
                 height: 15,
               ),
-              const Text("Processing fee:  ₦100.00"),
+              // const Text("Processing fee:  ₦100.00"),
               const Spacer(),
               Submitbutton(
                 isloading: controller.isLoading.value,

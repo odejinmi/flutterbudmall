@@ -1,10 +1,11 @@
+import 'package:flutterbudmall/src/controller/accountinformationcontroller.dart';
+import 'package:flutterbudmall/src/controller/productviewcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../constant/constant.dart';
 import '../constant/costumeAppbar.dart';
 import '../constant/submitbutton.dart';
-import '../controller/accountinformationcontroller.dart';
 
 class Accountinformation extends StatefulWidget {
   const Accountinformation({Key? key}) : super(key: key);

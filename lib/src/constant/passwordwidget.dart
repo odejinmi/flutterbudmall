@@ -41,10 +41,20 @@ class _PasswordwidgetState extends State<Passwordwidget> {
               ),
               hintText: widget.hint,
               suffixIcon: ElevatedButton(
+                style: ButtonStyle(
+                  elevation: MaterialStateProperty.all(0),
+                  //   // foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+                  backgroundColor:
+                      MaterialStateProperty.all<Color>(Colors.transparent),
+                  //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                  //         RoundedRectangleBorder(
+                  //           borderRadius: BorderRadius.all(Radius.circular(10)),
+                  //           // side: BorderSide(color: Colors.red)
+                  //         ))
+                ),
                 onPressed: () {
                   _toggle();
                 },
-                // splashColor: Colors.blue[50],
                 child: obscureText
                     ? const Icon(Icons.visibility)
                     : const Icon(Icons.visibility_off),

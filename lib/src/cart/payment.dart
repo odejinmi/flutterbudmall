@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/account/Myorder/addresswidget.dart';
+import 'package:flutterbudmall/src/account/deliveryaddress.dart';
+import 'package:flutterbudmall/src/account/paymentmethod.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
+import 'package:flutterbudmall/src/constant/costumeAppbar.dart';
+import 'package:flutterbudmall/src/constant/submitbutton.dart';
 import 'package:get/get.dart';
 
-import '../account/Myorder/addresswidget.dart';
-import '../account/deliveryaddress.dart';
-import '../account/paymentmethod.dart';
-import '../constant/constant.dart';
-import '../constant/costumeAppbar.dart';
-import '../constant/submitbutton.dart';
 import '../controller/cartcontroller.dart';
 import '../controller/deliveryaddresscontroller.dart';
 import 'check.dart';
@@ -262,7 +262,7 @@ class _PaymentState extends State<Payment> {
               //           borderRadius: BorderRadius.circular(10.0),
               //         ),
               //         child: Image.asset(
-              //             package: 'flutterbudmall',
+              // package: 'flutterbudmall',
               //           "assests/images/marstercard.png",
               //           height: 40.32,
               //           width: 60.48,

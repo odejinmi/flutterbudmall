@@ -1,10 +1,10 @@
+import 'package:flutterbudmall/src/account/settings/currency.dart';
+import 'package:flutterbudmall/src/account/settings/language.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constant/constant.dart';
 import '../../constant/costumeAppbar.dart';
-import 'currency.dart';
-import 'language.dart';
 
 class Settings extends StatelessWidget {
   const Settings({Key? key}) : super(key: key);

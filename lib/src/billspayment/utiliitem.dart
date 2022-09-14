@@ -1,8 +1,12 @@
+import 'dart:convert';
+
+import 'package:flutterbudmall/src/constant/constant.dart';
+import 'package:flutterbudmall/src/request/env_variable.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../constant/constant.dart';
 import '../controller/utilitycontroller.dart';
+import '../request/apis.dart';
 import 'utility.dart';
 import 'utilitymore.dart';
 
@@ -32,22 +36,25 @@ class _UtiliitemState extends State<Utiliitem> {
             ),
             controller.isLoading.isTrue
                 ? loadingWidget2
-                : Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      for (int i = 0; i < 4; i++)
-                        GestureDetector(
-                          child: controller
-                              .item(controller.buydataperser.value[i]),
-                          onTap: () {
-                            controller.selectedplan.value =
-                                controller.buydataperser.value[i].billercode;
-                            Get.to(() => Utility(
-                                network:
-                                    controller.buydataperser.value[i].name));
-                          },
-                        ),
-                    ],
+                : Container(
+                    child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                        shrinkWrap: true,
+                        itemCount: controller.buydataperser.value.length,
+                        itemBuilder: (context, i) {
+                          return GestureDetector(
+                            child: controller
+                                .item(controller.buydataperser.value[i]),
+                            onTap: () {
+                              controller.selectedplan.value =
+                                  controller.buydataperser.value[i].billercode;
+                              Get.to(() => Utility(
+                                  network:
+                                      controller.buydataperser.value[i].name));
+                            },
+                          );
+                        }),
+                    height: 104.19,
                   ),
             const Divider(),
             const SizedBox(

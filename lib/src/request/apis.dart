@@ -22,7 +22,7 @@ Future<String> createAccount(jsonBody) async {
 }
 
 Future<String> authAccount(jsonBody) async {
-  const endpoint = "login";
+  const endpoint = "sdkLogin";
   return await postApiCall(jsonBody, endpoint);
 }
 

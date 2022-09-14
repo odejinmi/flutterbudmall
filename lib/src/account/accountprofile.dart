@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/Dashboard/bottomnavigation.dart';
+import 'package:flutterbudmall/src/account/Myorder/myorder.dart';
+import 'package:flutterbudmall/src/account/accountinformation.dart';
+import 'package:flutterbudmall/src/account/paymentmethod.dart';
+import 'package:flutterbudmall/src/account/settings/settings.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
 import 'package:get/get.dart';
 
-import '../Dashboard/bottomnavigation.dart';
-import '../constant/constant.dart';
-import 'Myorder/myorder.dart';
-import 'accountinformation.dart';
 import 'deliveryaddress.dart';
-import 'paymentmethod.dart';
-import 'settings/settings.dart';
 
 class Accountprofile extends StatelessWidget {
   const Accountprofile({Key? key}) : super(key: key);

@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/Dashboard/cartcount.dart';
+import 'package:flutterbudmall/src/Dashboard/filterboarditem.dart';
 import 'package:get/get.dart';
 
 import '../constant/searchedittext.dart';
-import 'cartcount.dart';
 import 'filter.dart';
-import 'filterboarditem.dart';
 
 class Filterboard extends StatefulWidget {
   var item;
@@ -25,7 +25,7 @@ class _FilterboardState extends State<Filterboard> {
         child: Column(
           children: [
             Container(
-              color: const Color(0xffE9B200),
+              color: Color(0xffE9B200),
               child: Stack(
                 children: [
                   Container(
@@ -34,7 +34,7 @@ class _FilterboardState extends State<Filterboard> {
                       children: [
                         const Spacer(),
                         // Image.asset(
-                        //   package: 'flutterbudmall',"assests/images/${widget.item["name"].toString().replaceAll(" ", "")
+                        // package: 'flutterbudmall',"assests/images/${widget.item["name"].toString().replaceAll(" ", "")
                         //     .replaceAll("/", "").replaceAll("&", "").toLowerCase()}top.png",
                         //   height: 145.69, width: 145.69,
                         // ),
@@ -78,7 +78,7 @@ class _FilterboardState extends State<Filterboard> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            const SizedBox(
+                            SizedBox(
                               width: 10,
                             ),
                             Cartcount()
@@ -104,7 +104,6 @@ class _FilterboardState extends State<Filterboard> {
               height: 15,
             ),
             Container(
-              height: 32,
               child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   shrinkWrap: true,
@@ -140,6 +139,7 @@ class _FilterboardState extends State<Filterboard> {
                       ),
                     );
                   }),
+              height: 32,
             ),
             const SizedBox(
               height: 15,

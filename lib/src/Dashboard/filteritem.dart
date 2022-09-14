@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/Dashboard/filterboard.dart';
 import 'package:get/get.dart';
-
-import 'filterboard.dart';
 
 class Filteritem extends StatelessWidget {
   var nDataList;

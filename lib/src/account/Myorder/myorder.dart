@@ -1,11 +1,11 @@
+import 'package:flutterbudmall/src/account/Myorder/processing.dart';
+import 'package:flutterbudmall/src/account/Myorder/shipped.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
+import 'package:flutterbudmall/src/constant/costumeAppbar.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../../constant/constant.dart';
-import '../../constant/costumeAppbar.dart';
 import '../../controller/ordercontroller.dart';
-import 'processing.dart';
-import 'shipped.dart';
 
 class Myorder extends StatefulWidget {
   final bool back;
@@ -17,7 +17,7 @@ class Myorder extends StatefulWidget {
 
 class _MyorderState extends State<Myorder> {
   var cartcontroller = Get.put(Ordercontroller());
-  int selected = 2;
+  int selected = 1;
   @override
   Widget build(BuildContext context) {
     return Scaffold(

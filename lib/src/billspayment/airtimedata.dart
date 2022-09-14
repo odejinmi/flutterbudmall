@@ -1,9 +1,9 @@
+import 'package:flutterbudmall/src/constant/submitbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../constant/constant.dart';
 import '../constant/costumeAppbar.dart';
-import '../constant/submitbutton.dart';
 import '../controller/airtimedatacontroller.dart';
 
 class Airtimedata extends StatefulWidget {
@@ -272,7 +272,7 @@ class _AirtimedataState extends State<Airtimedata> {
               const SizedBox(
                 height: 15,
               ),
-              const Text("Processing fee:  ₦10.00"),
+              // const Text("Processing fee:  ₦10.00"),
               const Spacer(),
               Submitbutton(
                 name: "Pay",

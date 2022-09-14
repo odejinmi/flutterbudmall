@@ -1,13 +1,13 @@
+import 'package:flutterbudmall/src/Dashboard/saveditem.dart';
+import 'package:flutterbudmall/src/cart/itemcounter.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
+import 'package:flutterbudmall/src/constant/costumeAppbar.dart';
+import 'package:flutterbudmall/src/constant/submitbutton.dart';
+import 'package:flutterbudmall/src/controller/productviewcontroller.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../cart/itemcounter.dart';
-import '../constant/constant.dart';
-import '../constant/costumeAppbar.dart';
-import '../constant/submitbutton.dart';
-import '../controller/productviewcontroller.dart';
 import '../request/env_variable.dart';
-import 'saveditem.dart';
 
 class Productview extends StatelessWidget {
   Productview({Key? key}) : super(key: key);
@@ -31,10 +31,12 @@ class Productview extends StatelessWidget {
   Widget build(BuildContext context) {
     productviewcontroller.itemcountercontroller.available.value =
         productviewcontroller.nDatalist.inStock;
+
+    productviewcontroller.productDetails();
+
     if (productviewcontroller.fullProductDetails != null) {
       productviewcontroller.fullProductDetails.relatedProducts.clear();
     }
-    productviewcontroller.productDetails();
     return Scaffold(
       body: SingleChildScrollView(
         child: GetX<Productviewcontroller>(builder: (controller) {
@@ -169,10 +171,10 @@ class Productview extends StatelessWidget {
                           fontSize: 16,
                         )),
                     Spacer(),
-                    Text(
-                      "View all",
-                      style: TextStyle(color: primarycolour, fontSize: 15),
-                    )
+                    // Text(
+                    //   "View all",
+                    //   style: TextStyle(color: primarycolour, fontSize: 15),
+                    // )
                   ],
                 ),
                 const SizedBox(
@@ -208,33 +210,41 @@ class Productview extends StatelessWidget {
   Widget item(nDalist) {
     return Container(
       margin: const EdgeInsets.symmetric(horizontal: 10),
+      color: Colors.transparent,
       width: 140,
       // height: 192,
       child: Stack(
         children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Image.network(
-                imageurl + "product/" + nDalist.mainImage,
-                height: 130,
-                width: 130,
-              ),
-              const SizedBox(
-                height: 5,
-              ),
-              // Text(
-              //   nDalist.description,
-              //   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
-              // ),
-              // const SizedBox(
-              //   height: 7,
-              // ),
-              Text(
-                nDalist.name,
-                style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
-              )
-            ],
+          GestureDetector(
+            onTap: () {
+              productviewcontroller.nDatalist = nDalist;
+              Get.back();
+              Get.to(() => Productview());
+            },
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Image.network(
+                  imageurl + "product/" + nDalist.mainImage,
+                  height: 130,
+                  width: 130,
+                ),
+                const SizedBox(
+                  height: 5,
+                ),
+                // Text(
+                //   nDalist.description,
+                //   style: TextStyle(fontWeight: FontWeight.w600, fontSize: 12),
+                // ),
+                // const SizedBox(
+                //   height: 7,
+                // ),
+                Text(
+                  nDalist.name,
+                  style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                )
+              ],
+            ),
           ),
           Row(
             crossAxisAlignment: CrossAxisAlignment.start,

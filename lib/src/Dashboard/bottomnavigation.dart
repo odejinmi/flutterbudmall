@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/Dashboard/dashboard.dart';
+import 'package:flutterbudmall/src/Favourite/favourite.dart';
+import 'package:flutterbudmall/src/Wallet/wallet.dart';
+import 'package:flutterbudmall/src/account/accountprofile.dart';
+import 'package:flutterbudmall/src/controller/cartcontroller.dart';
+import 'package:flutterbudmall/src/controller/dashboardcontroller.dart';
+import 'package:flutterbudmall/src/controller/walletcontroller.dart';
 import 'package:get/get.dart';
-
-import '../Favourite/favourite.dart';
-import '../Wallet/wallet.dart';
-import '../account/accountprofile.dart';
-import '../controller/cartcontroller.dart';
-import '../controller/dashboardcontroller.dart';
-import '../controller/walletcontroller.dart';
-import 'dashboard.dart';
 
 class Bottomnavigation extends StatelessWidget {
   final int position;

@@ -1,6 +1,7 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/request/env_variable.dart';
 import 'package:get/get.dart';
 
 import '../constant/constant.dart';
@@ -10,7 +11,6 @@ import '../model/latestproductsperser.dart';
 import '../model/superpackperser.dart';
 import '../model/topsellingproductsperser.dart';
 import '../request/apis.dart';
-import '../request/env_variable.dart';
 
 class Dashboardcontroller extends GetxController {
   var isLoading = false.obs;

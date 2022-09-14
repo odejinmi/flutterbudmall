@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutterbudmall/flutterbudmall.dart';
-import 'package:flutterbudmall_example/constant.dart';
-import 'package:flutterbudmall_example/login.dart';
 import 'package:get/get.dart';
 
 void main() {
@@ -29,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: Login(),
+      home: const MyHomePage(title: "hello"),
     );
   }
 }
@@ -59,9 +57,8 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     plugin.initialize(
-        tokened: token,
-        publicKey: "pk_live_gtpiauiuqlqepdlq8omtt4nlu1w1vqscxrr3o7",
-        secretKey: "sk_live_8zzbjxhppt71jk4yycydtoadngzgddzmtmjpzrv");
+      emailed: "odejinmiabraham@gmail.com",
+    );
     super.initState();
   }
 
@@ -102,20 +99,17 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You are about to launch Budmall',
             ),
-            Text(
-              '$_counter',
-              style: Theme.of(context).textTheme.headline4,
+            const SizedBox(
+              height: 20,
             ),
+            ElevatedButton(
+                onPressed: () {
+                  plugin.checkout();
+                },
+                child: const Text("open Budmall")),
           ],
         ),
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          plugin.checkout(context);
-        },
-        tooltip: 'Increment',
-        child: const Icon(Icons.add),
-      ), // This trailing comma makes auto-formatting nicer for build methods.
     );
   }
 }

@@ -52,38 +52,27 @@ class CustomAlertDialog extends StatelessWidget {
         Visibility(
           visible: positiveBtnText != null ? true : false,
           child: ElevatedButton(
+            style: ButtonStyle(
+              elevation: MaterialStateProperty.all(0),
+              //   // foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              backgroundColor: MaterialStateProperty.all<Color>(Colors.white),
+              //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              //         RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.all(Radius.circular(10)),
+              //           // side: BorderSide(color: Colors.red)
+              //         ))
+            ),
             child: Text(
               positiveBtnText ?? "",
-              style: TextStyle(
-                color: Theme.of(context).colorScheme.secondary,
-              ),
+              style: TextStyle(color: Theme.of(context).colorScheme.secondary),
             ),
-            style: ButtonStyle(
-                // foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                // backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                // shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                //     RoundedRectangleBorder(
-                //         borderRadius: BorderRadius.zero,
-                //         side: BorderSide(color: Colors.red)))
-                ),
             onPressed: () {
               if (onPostivePressed != null) {
                 onPostivePressed!();
               }
             },
           ),
-        ),
-        ElevatedButton(
-            child:
-                Text("Buy now".toUpperCase(), style: TextStyle(fontSize: 14)),
-            style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-                backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    RoundedRectangleBorder(
-                        borderRadius: BorderRadius.zero,
-                        side: BorderSide(color: Colors.red)))),
-            onPressed: () => null)
+        )
       ],
     );
   }

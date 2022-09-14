@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/billspayment/billspayment.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
+import 'package:flutterbudmall/src/constant/submitbutton.dart';
 import 'package:get/get.dart';
-
-import '../billspayment/billspayment.dart';
-import '../constant/constant.dart';
-import '../constant/submitbutton.dart';
 
 class Menu extends StatelessWidget {
   const Menu({Key? key}) : super(key: key);

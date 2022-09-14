@@ -1,17 +1,17 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
+
 import 'package:flutter/services.dart';
 import 'package:flutterbudmall/src/Dashboard/dashboard.dart';
 import 'package:flutterbudmall/src/constant/constant.dart';
 import 'package:get/get.dart';
 
+import '../constant/Savedetails.dart';
 import '../models/charge.dart';
+import '../request/apis.dart';
 import 'exceptions.dart';
-import 'utils.dart';
 
 class Budmall {
   bool _sdkInitialized = false;
-  String _publicKey = "";
-  String _secretKey = "";
   // static late PlatformInfo platformInfo;
 
   /// Initialize the Budmall object. It should be called as early as possible
@@ -23,72 +23,81 @@ class Budmall {
   /// use [checkout] and you want this plugin to initialize the transaction for you.
   /// Please check [checkout] for more information
   ///
-  initialize(
-      {required String publicKey,
-      required String secretKey,
-      required String tokened}) async {
+  initialize({required String emailed}) async {
     assert(() {
-      if (publicKey.isEmpty) {
-        throw BudmallException('publicKey cannot be null or empty');
-      } else if (!publicKey.startsWith("pk_")) {
-        throw BudmallException(Utils.getKeyErrorMsg('public'));
-      } else if (secretKey.isEmpty) {
-        throw BudmallException('secretKey cannot be null or empty');
-      } else if (!secretKey.startsWith("sk_")) {
-        throw BudmallException(Utils.getKeyErrorMsg('secret'));
-      } else if (tokened.isEmpty) {
-        throw BudmallException('token cannot be null or empty');
-      } else
+      if (emailed.isEmpty) {
+        throw BudmallException('email cannot be null or empty');
+      } else {
+        runsdk(emailed);
         return true;
+      }
     }());
 
     if (sdkInitialized) return;
 
-    publicKey = publicKey;
-    secretKey = secretKey;
+    // publicKey = publicKey;
+    // secretKey = secretKey;
 
     // Using cascade notation to build the platform specific info
     try {
       // platformInfo = (await PlatformInfo.getinfo())!;
-      _publicKey = publicKey;
-      _secretKey = secretKey;
-      token = tokened;
-      _sdkInitialized = true;
+      // _publicKey = publicKey;
+      // _secretKey = secretKey;
     } on PlatformException {
       rethrow;
     }
   }
 
   dispose() {
-    _publicKey = "";
-    _secretKey = "";
+    // _publicKey = "";
+    // _secretKey = "";
     _sdkInitialized = false;
+  }
+
+  void runsdk(emailed) async {
+    var jsonBody = {
+      "email": emailed,
+    };
+    var res = await authAccount(jsonBody);
+
+    var cmddetails = jsonDecode(res);
+    if (cmddetails['status']) {
+      token = cmddetails["data"]['access_token'];
+      SaveDetails(cmddetails, true);
+      _sdkInitialized = true;
+      Get.snackbar("Budmall", 'Sdk initialized',
+          snackPosition: SnackPosition.BOTTOM);
+    } else {
+      _sdkInitialized = false;
+      Get.snackbar("Budmall", 'Sdk not yet initialized',
+          snackPosition: SnackPosition.BOTTOM);
+    }
   }
 
   bool get sdkInitialized => _sdkInitialized;
 
-  String get publicKey {
-    // Validate that the sdk has been initialized
-    _validateSdkInitialized();
-    return _publicKey;
-  }
+  // String get publicKey {
+  //   // Validate that the sdk has been initialized
+  //   _validateSdkInitialized();
+  //   return _publicKey;
+  // }
+  //
+  // String get secretKey {
+  //   // Validate that the sdk has been initialized
+  //   _validateSdkInitialized();
+  //   return _secretKey;
+  // }
 
-  String get secretKey {
-    // Validate that the sdk has been initialized
-    _validateSdkInitialized();
-    return _secretKey;
-  }
-
-  void _performChecks() {
-    //validate that sdk has been initialized
-    _validateSdkInitialized();
-    //check for null value, and length and starts with sk_
-    if (_publicKey.isEmpty || !_publicKey.startsWith("pk_")) {
-      throw AuthenticationException(Utils.getKeyErrorMsg('public'));
-    } else if (_secretKey.isEmpty || !_secretKey.startsWith("sk_")) {
-      throw AuthenticationException(Utils.getKeyErrorMsg('secret'));
-    }
-  }
+  // void _performChecks() {
+  //   //validate that sdk has been initialized
+  //   _validateSdkInitialized();
+  //   //check for null value, and length and starts with sk_
+  //   if (_publicKey.isEmpty || !_publicKey.startsWith("pk_")) {
+  //     throw AuthenticationException(Utils.getKeyErrorMsg('public'));
+  //   } else if (_secretKey.isEmpty || !_secretKey.startsWith("sk_")) {
+  //     throw AuthenticationException(Utils.getKeyErrorMsg('secret'));
+  //   }
+  // }
 
   /// Make payment using Budmall's checkout form. The plugin will handle the whole
   /// processes involved.
@@ -132,7 +141,12 @@ class Budmall {
   //       );
   // }
 
-  void checkout(BuildContext context) {
+  void checkout() {
+    if (token.isEmpty) {
+      Get.snackbar("Budmall", 'Sdk not yet initialized',
+          snackPosition: SnackPosition.BOTTOM);
+      return;
+    }
     Get.to(() => const Dashboard());
   }
 

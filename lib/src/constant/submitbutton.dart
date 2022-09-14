@@ -43,6 +43,17 @@ class _SubmitbuttonState extends State<Submitbutton> {
           borderRadius: BorderRadius.circular(15.0),
         ),
         child: ElevatedButton(
+          style: ButtonStyle(
+            elevation: MaterialStateProperty.all(0),
+            //   // foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+            backgroundColor: MaterialStateProperty.all<Color>(
+                !widget.walletfield ? widget.disable : widget.buttoncolor),
+            //     shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+            //         RoundedRectangleBorder(
+            //           borderRadius: BorderRadius.all(Radius.circular(10)),
+            //           // side: BorderSide(color: Colors.red)
+            //         ))
+          ),
           child: widget.isloading
               ? widget.loading
               : Text(widget.name,
@@ -52,7 +63,6 @@ class _SubmitbuttonState extends State<Submitbutton> {
                         : widget.textcolor,
                     fontSize: 17,
                   )),
-          // colorBrightness: Brightness.dark,
           onPressed: () {
             if (!widget.isloading) {
               if (widget.walletfield) {
@@ -61,16 +71,6 @@ class _SubmitbuttonState extends State<Submitbutton> {
               }
             }
           },
-          style: ButtonStyle(
-              // foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-              backgroundColor: MaterialStateProperty.all<Color>(
-                !widget.walletfield ? widget.disable : widget.buttoncolor,
-              ),
-              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                  RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(120)),
-                // side: BorderSide(color: Colors.red)
-              ))),
         ),
       ),
     );

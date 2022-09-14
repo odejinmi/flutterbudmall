@@ -1,12 +1,12 @@
+import 'package:flutterbudmall/src/account/Myorder/addresswidget.dart';
+import 'package:flutterbudmall/src/account/addnewdeliveryaddress.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
+import 'package:flutterbudmall/src/constant/costumeAppbar.dart';
+import 'package:flutterbudmall/src/constant/submitbutton.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-import '../constant/constant.dart';
-import '../constant/costumeAppbar.dart';
-import '../constant/submitbutton.dart';
 import '../controller/deliveryaddresscontroller.dart';
-import 'Myorder/addresswidget.dart';
-import 'addnewdeliveryaddress.dart';
 
 class Deliveryaddress extends StatefulWidget {
   const Deliveryaddress({Key? key}) : super(key: key);

@@ -1,7 +1,6 @@
+import 'package:flutterbudmall/src/Dashboard/filteritem.dart';
+import 'package:flutterbudmall/src/constant/constant.dart';
 import 'package:flutter/material.dart';
-
-import '../constant/constant.dart';
-import 'filteritem.dart';
 
 class Dashboardfilter extends StatelessWidget {
   const Dashboardfilter({
@@ -14,19 +13,18 @@ class Dashboardfilter extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          const SizedBox(
+          SizedBox(
             height: 10,
           ),
           Wrap(
             children: [
               for (int i = 0; i < originList.length; i++)
                 Container(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: 12, vertical: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 20),
                     child: Filteritem(nDataList: originList[i]))
             ],
           ),
-          const SizedBox(
+          SizedBox(
             height: 60,
           ),
         ],

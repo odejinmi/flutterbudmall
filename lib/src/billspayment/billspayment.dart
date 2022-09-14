@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:flutterbudmall/src/billspayment/airtimedata.dart';
+import 'package:flutterbudmall/src/billspayment/cabletv.dart';
+import 'package:flutterbudmall/src/billspayment/utiliitem.dart';
 import 'package:get/get.dart';
 
 import '../constant/costumeAppbar.dart';
-import 'airtimedata.dart';
-import 'cabletv.dart';
-import 'utiliitem.dart';
 
 class Billspayment extends StatelessWidget {
   const Billspayment({Key? key}) : super(key: key);
@@ -17,6 +17,7 @@ class Billspayment extends StatelessWidget {
           "Bill payment",
           style: TextStyle(color: Colors.black),
         ),
+        color: Colors.transparent,
       ),
       body: Container(
         padding: const EdgeInsets.symmetric(horizontal: 20),

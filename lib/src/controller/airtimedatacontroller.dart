@@ -48,7 +48,8 @@ class Airtimedatacontroller extends GetxController {
 
     var cmddetails = jsonDecode(res);
 
-    if (cmddetails['status'] == "ok") {
+    if (cmddetails['status']) {
+      showCommonSuccess(cmddetails['message'], context);
     } else {
       if (cmddetails['message'] != "No internet connection") {
         showCommonError(cmddetails['message'], context);

@@ -114,18 +114,18 @@ class _DiapadState extends State<Diapad> {
   Widget buttonwidget({Widget? child, Function? number}) {
     return ElevatedButton(
       style: ButtonStyle(
-          // foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
-          // backgroundColor: MaterialStateProperty.all<Color>(Colors.red),
+          elevation: MaterialStateProperty.all(0),
+          //   // foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
+          backgroundColor: MaterialStateProperty.all<Color>(Colors.transparent),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
-        borderRadius: BorderRadius.all(Radius.circular(120)),
-        // side: BorderSide(color: Colors.red)
-      ))),
+            borderRadius: BorderRadius.all(Radius.circular(120)),
+            // side: BorderSide(color: Colors.red)
+          ))),
       onPressed: () async {
         number!();
       },
-      // splashColor: Colors.blue[50],
-      child: child!,
+      child: Container(height: 100, width: 100, child: child!),
     );
   }
 }
