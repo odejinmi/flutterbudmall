@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       debugShowCheckedModeBanner: false,
-      home: const MyHomePage(title: "hello"),
+      home: const MyHomePage(title: "Budmall Sdk"),
     );
   }
 }
