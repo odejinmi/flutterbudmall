@@ -1,13 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutterbudmall/src/Dashboard/dashboard.dart';
-import 'package:flutterbudmall/src/common/custom_dialog.dart';
 import 'package:flutterbudmall/src/constant/constant.dart';
+import 'package:get/get.dart';
 
 import '../models/charge.dart';
-import '../models/checkout_response.dart';
 import 'exceptions.dart';
-import 'string_utils.dart';
 import 'utils.dart';
 
 class Budmall {
@@ -126,12 +124,16 @@ class Budmall {
   /// top of payment prompt, just under the email. Also the payment
   /// call-to-action will display the amount, otherwise it will display
   /// "Continue". Defaults to `false`
-  Future<CheckoutResponse> checkout(BuildContext context) async {
-    _performChecks();
-    return _Budmall(publicKey, secretKey).checkout(context
-        // charge: charge,
-        // logo: logo,
-        );
+  // Future<CheckoutResponse> checkout(BuildContext context) async {
+  //   _performChecks();
+  //   return _Budmall(publicKey, secretKey).checkout(context
+  //       // charge: charge,
+  //       // logo: logo,
+  //       );
+  // }
+
+  void checkout(BuildContext context) {
+    Get.to(() => const Dashboard());
   }
 
   _validateSdkInitialized() {
@@ -143,45 +145,65 @@ class Budmall {
   }
 }
 
-class _Budmall {
-  final String publicKey;
-  final String secretKey;
-
-  _Budmall(this.publicKey, this.secretKey);
-
-  Future<CheckoutResponse> checkout(BuildContext context
-      // {
-      // required Charge charge,
-      // Widget? logo,
-      // }
-      ) async {
-    // assert(() {
-    //   _validateChargeAndKey(charge);
-    //   return true;
-    // }());
-    // final platform = platforminfo.Platform.instance.operatingSystem;
-    // print(platform);
-    CheckoutResponse? response = await showDialog(
-      barrierDismissible: false,
-      context: context,
-      builder: (BuildContext context) =>
-          const CustomDialog(expanded: false, child: Dashboard()),
-    );
-    //  CheckoutResponse? response = await showDialog(
-    //   barrierDismissible: false,
-    //   context: context,
-    //   builder: (BuildContext context) =>
-    //       const CustomDialog(expanded: true, child: Dashboard()),
-    // );
-    return response!;
-  }
-
-  _validateChargeAndKey(Charge charge) {
-    if (charge.amount.isNegative) {
-      throw InvalidAmountException(charge.amount);
-    }
-    if (!StringUtils.isValidEmail(charge.email)) {
-      throw InvalidEmailException(charge.email);
-    }
-  }
-}
+// class _Budmall {
+//   final String publicKey;
+//   final String secretKey;
+//
+//   _Budmall(this.publicKey, this.secretKey);
+//
+//   Future<CheckoutResponse> checkout(BuildContext context
+//       // {
+//       // required Charge charge,
+//       // Widget? logo,
+//       // }
+//       ) async {
+//     // assert(() {
+//     //   _validateChargeAndKey(charge);
+//     //   return true;
+//     // }());
+//     // final platform = platforminfo.Platform.instance.operatingSystem;
+//     // print(platform);
+//     CheckoutResponse? response = await showDialog(
+//       barrierDismissible: false,
+//       context: context,
+//       builder: (BuildContext context) => Material(
+//         color: Theme.of(context).scaffoldBackgroundColor,
+//         // ? Colors.white
+//         // : Colors.grey,
+//         child: Stack(
+//           children: [
+//             const CustomDialog(expanded: false, child: Dashboard()),
+//             Align(
+//               alignment: Alignment.topRight,
+//               child: IconButton(
+//                 icon: const Icon(Icons.close),
+//                 onPressed: () {
+//                   Get.back();
+//                 },
+//                 color: Colors.black54,
+//                 padding: const EdgeInsets.all(15.0),
+//                 iconSize: 30.0,
+//               ),
+//             ),
+//           ],
+//         ),
+//       ),
+//     );
+//     //  CheckoutResponse? response = await showDialog(
+//     //   barrierDismissible: false,
+//     //   context: context,
+//     //   builder: (BuildContext context) =>
+//     //       const CustomDialog(expanded: true, child: Dashboard()),
+//     // );
+//     return response!;
+//   }
+//
+//   _validateChargeAndKey(Charge charge) {
+//     if (charge.amount.isNegative) {
+//       throw InvalidAmountException(charge.amount);
+//     }
+//     if (!StringUtils.isValidEmail(charge.email)) {
+//       throw InvalidEmailException(charge.email);
+//     }
+//   }
+// }
