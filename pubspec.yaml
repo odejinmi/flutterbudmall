@@ -1,7 +1,9 @@
 name: flutterbudmall
-description: A new Flutter project.
+description: Flutter plugin for online shopping with Budmall Payment System. Fully
+  supports all platform.
 version: 0.0.1
-homepage:
+homepage: https://budmall.ng
+repository: https://github.com/odejinmi/flutterbudmall.git
 
 environment:
   sdk: '>=2.18.0 <3.0.0'
@@ -10,22 +12,14 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  plugin_platform_interface: ^2.1.2
-  slider:
-  shared_preferences:
-  shimmer:
-  flutter_spinkit:
-  email_validator:
-  get:
-  http:
+  shared_preferences: ^2.0.15
+  shimmer: ^2.0.0
+  flutter_spinkit: ^5.1.0
+  get: ^4.6.5
+  http: ^0.13.5
   flutter_svg_provider: ^1.0.3
-  encrypt:
-  firebase_core:
-  firebase_auth:
-  universal_platform:
-#  package_info_plus:
-#  platform_info:
-#  device_info_plus:
+  encrypt: ^5.0.1
+  intl: ^0.17.0
 
 dev_dependencies:
   flutter_test:
@@ -47,15 +41,7 @@ flutter:
   # This is required for using `dart:ffi`.
   # All these are used by the tooling to maintain consistency when
   # adding or updating assets for this project.
-  plugin:
-    platforms:
-      android:
-        package: com.example.flutterbudmall
-        pluginClass: FlutterbudmallPlugin
-      ios:
-        pluginClass: FlutterbudmallPlugin
-      macos:
-        pluginClass: FlutterbudmallPlugin
+
 
   # To add assets to your plugin package, add an assets section, like this:
   assets:
